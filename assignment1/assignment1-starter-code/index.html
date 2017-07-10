@@ -7,23 +7,26 @@
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
     </style>
+    <script src="script/angular.min.js"></script>
   </head>
-<body>
-   <div class="container">
+<body ng-app="lunchFood">
+   <div ng-controller="notTooMuchCtrl" class="container">
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
              <input id="lunch-menu" type="text"
-             placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             placeholder="list comma separated dishes you usually have for lunch, empty entries will be deleted"
+             class="form-control"
+             ng-model="isTooMuchInput">
          </div>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button class="btn btn-default" ng-click="checkTooMuch()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
-           <!-- Your message can go here. -->
+         <div class="form-group message" style="color: {{color}}">
+           {{isTooMuchMessage}}
          </div>
    </div>
 
+  <script src="app.js"></script>
 </body>
 </html>
