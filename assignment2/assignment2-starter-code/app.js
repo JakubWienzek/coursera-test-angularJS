@@ -13,10 +13,13 @@
 
     function ListManagerSERV() {
         var service = this;
-
         var toBuyList = initialList;
         var alreadyBoughtList = [];
-        
+
+        function addItemToBoughtList(item) {
+            alreadyBoughtList.push(item);
+        };
+
         service.getToBuyList = function() {
             return toBuyList;
         };
@@ -28,10 +31,6 @@
         service.markItemAsBought = function(index) {
             addItemToBoughtList(toBuyList[index]);
             toBuyList.splice(index, 1);
-        };
-
-        var addItemToBoughtList = function(item) {
-            alreadyBoughtList.push(item);
         };
     };
 
