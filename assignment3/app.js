@@ -9,16 +9,22 @@
     NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
     function NarrowItDownController($scope, MenuSearchService) {
         var ctrl = this;
+        var service = MenuSearchService;
+
+        ctrl.foodList = service.getMatchedMenuItems(ctrl.narrowString);  
+
     };
 
-    MenuSearchService.$inject = ['$html'];
-    function MenuSearchService($html) {
+    MenuSearchService.$inject = ['$http'];
+    function MenuSearchService($http) {
         var serv = this;
-        //list found
+
+        var found = [];
         //list excluded
         //zachowanie asynchronizne $html
 
         serv.getMatchedMenuItems = function(searchTerm) {
+            console.log("term: " +searchTerm);
           //That method will be responsible for reaching out to the server (using the $http service)  
           //https://davids-restaurant.herokuapp.com/menu_items.json
         };
@@ -33,7 +39,8 @@
             scope: {
                 //TODO
                 onRemove: "=?",
-                foundItems: "=?",
+                foundItem: "=?",
+                found: "<"
             },
             templateUrl: "components/foundItems.html"
         };
