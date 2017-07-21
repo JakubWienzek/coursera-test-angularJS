@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myFirstApp">
     <head>
         <meta charset="UTF-8">
         <title>Hello my COusera</title>
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
     </head>
     <body>
-        <h1>Hello Courser Porjetxtearad. This can be very good for useng</h1>
+        <h1>header</h1>
+       <div ng-controller="myFirstController">
+        Text: {{sayHello()}}
+        <input type="text" ng-model="name">
+        {{name}}
+       </div>
     </body>
 </html>
