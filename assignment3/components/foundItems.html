@@ -1,4 +1,7 @@
 <ol>
-    <li ng-repeat="">text <button ng-click="...">Don't want this one!</button></li>
+    <li ng-repeat="item in narrowCtrl.menu">
+        {{ item.name }}
+        <button ng-click="narrowCtrl.onRemove({index: $index})">Don't want this one!</button>
+    </li>
 </ol>
 <p>Nothing found</p>
