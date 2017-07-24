@@ -9,12 +9,14 @@
     NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
     function NarrowItDownController($scope, MenuSearchService) {
         var ctrl = this;
-        var service = MenuSearchService
+        var service = MenuSearchService;
         
         ctrl.items = service.getFoundItems();
 
         ctrl.search = function() {
+            service.resetFoundItems();
             service.getMatchedMenuItems(ctrl.narrowString);
+            ctrl.items = service.getFoundItems();
         }
 
         ctrl.removeItem = function(itemIndex) {
@@ -26,6 +28,10 @@
     function MenuSearchService($http) {
         var serv = this;
         var found = [];
+
+        serv.resetFoundItems = function() {
+            found = [];
+        }
 
         serv.getFoundItems = function() {
             return found;
@@ -42,7 +48,6 @@
                 url: "https://davids-restaurant.herokuapp.com/menu_items.json"
             })
             .then(function (response) {
-                found = [];
                 console.log(found);
                 var menu = response.data.menu_items;
                 setFiltederList(searchTerm, menu);
@@ -72,7 +77,8 @@
             templateUrl: "components/foundItems.html",
             controller: FoundItemsController,
             controllerAs: "FIctrl",
-            bindToController: true
+            bindToController: true,
+            link: FoundItemsLink
         };
 
         return ddo;
@@ -80,12 +86,33 @@
 
     function FoundItemsController() {
         var FIctrl = this;
+        FIctrl.isEmpty = false;
 
         FIctrl.emptyList = function() {
             if(FIctrl.items.length === 0) {
-                return true;
+                FIctrl.isEmpty= true;
             }
-            return false;
+            FIctrl.isEmpty = false;
         }
+    };
+
+    function FoundItemsLink(scope, element, attrs, controller) {
+        console.log(scope);
+        console.log(controller);
+        console.log(element);
+
+        scope.$watch('FIctrl.emptyList()', function (newValue, oldValue) {
+            console.log(newValue);
+            console.log(oldValue);
+
+            if(newValue) {
+                display();
+            }
+        });
+
+        function display() {
+            var warningElement = element.find("div");
+            warningElement.css('display', 'block');
+        };
     }
 })();
