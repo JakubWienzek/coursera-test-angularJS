@@ -1,7 +1,7 @@
 <ol>
-    <li ng-repeat="item in narrowCtrl.menu">
+    <li ng-repeat="item in FIctrl.items">
         {{ item.name }}
-        <button ng-click="narrowCtrl.onRemove({index: $index})">Don't want this one!</button>
+        <button ng-click="FIctrl.onRemove({index: $index})">Don't want this one!</button>
     </li>
 </ol>
-<p>Nothing found</p>
+<div class="text-warning bg-warning" ng-show="FIctrl.emptyList()">Nothing found</div>
