@@ -44,7 +44,7 @@
 
         function setFiltederList(searchTerm, menu) {
             for(var i=0;i<menu.length;i++) {
-                if(menu[i].name.toLowerCase().indexOf(searchTerm) !== -1)
+                if(menu[i].description.toLowerCase().indexOf(searchTerm) !== -1)
                     found.push(menu[i]);
             }
         }
