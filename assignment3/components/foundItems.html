@@ -1,6 +1,7 @@
 <ol>
     <li ng-repeat="item in FIctrl.items">
-        {{ item.name }}
+        {{item.short_name}} {{ item.name }} <br>
+        {{ item. description }}
         <button ng-click="FIctrl.onRemove({index: $index})">Don't want this one!</button>
     </li>
 </ol>
