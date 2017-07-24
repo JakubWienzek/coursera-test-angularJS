@@ -1,8 +1,8 @@
 <ol>
-    <li ng-repeat="item in FIctrl.items">
+    <li class="list" ng-repeat="item in FIctrl.items">
         {{item.short_name}} {{ item.name }} <br>
         {{ item. description }}
-        <button ng-click="FIctrl.onRemove({index: $index})">Don't want this one!</button>
+        <button class="notThisBtn" ng-click="FIctrl.onRemove({index: $index})">Don't want this one!</button>
     </li>
 </ol>
 <div class="text-warning bg-warning" ng-show="FIctrl.emptyList()">Nothing found</div>

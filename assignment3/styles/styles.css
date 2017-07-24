@@ -50,3 +50,12 @@ input[type="text"] {
     transform: rotate(360deg);
   }
 }
+
+.notThisBtn {
+  float: right;
+  margin-left: 5px; 
+}
+
+.list {
+  padding: 5px;
+}
