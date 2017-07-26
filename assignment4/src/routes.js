@@ -20,14 +20,31 @@
                 templateUrl: 'src/menuapp/templates/menuapp.categories.template.html',
                 controller: 'CategoriesCTRL as ctrl',
                 resolve: {
-                    categories: ['MenuDataService', function (MenuDataService) {
-                        return MenuDataService.getAllCategories();
+                    items: ['MenuDataService', function (MenuDataService) {
+                        var promise = MenuDataService.getAllCategories();
+
+                       return promise.then( function (responce) {
+                           console.log(responce.data)
+                           return responce.data;
+                        });
                     }]
                 }
             })
 
             .state('items', {
+                url: '/items/{categoryId}',
+                templateUrl: 'src/menuapp/templates/menuapp.items.template.html',
+                controller: 'ItemsInCategoriesCTRL as ctrl',
+                resolve: {
+                    items: ['MenuDataService', '$stateParams', function (MenuDataService, $stateParams) {
+                        var promise = MenuDataService.getItemsForCategory($stateParams.categoryId);
 
+                        return promise.then( function (responce) {
+                            console.log(responce.data)
+                            return responce.data;
+                        });
+                    }]
+                }
             })
     }
 })();

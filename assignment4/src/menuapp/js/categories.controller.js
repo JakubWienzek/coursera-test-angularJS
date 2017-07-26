@@ -4,10 +4,11 @@
     angular.module('MenuApp')
         .controller('CategoriesCTRL', CategoriesCTRL);
 
-    CategoriesCTRL.$inject = ['categories', 'MenuDataService'];
-    function CategoriesCTRL(categories, MenuDataService) {
+    CategoriesCTRL.$inject = ['MenuDataService', 'items'];
+    function CategoriesCTRL(MenuDataService, items) {
         var ctrl = this;
-        ctrl.categories = categories;
+        ctrl.items = items;
+        console.log("cat: ", items);
     }
 
 })();
