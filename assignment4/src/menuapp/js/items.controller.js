@@ -8,7 +8,6 @@
     function ItemsInCategoriesCTRL(MenuDataService, items) {
         var ctrl = this;
         ctrl.items = items;
-        console.log("cat: ", items);
     }
 
 })();

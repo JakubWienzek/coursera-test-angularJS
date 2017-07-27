@@ -21,12 +21,7 @@
                 controller: 'CategoriesCTRL as ctrl',
                 resolve: {
                     items: ['MenuDataService', function (MenuDataService) {
-                        var promise = MenuDataService.getAllCategories();
-
-                       return promise.then( function (responce) {
-                           console.log(responce.data)
-                           return responce.data;
-                        });
+                        return MenuDataService.getAllCategories();
                     }]
                 }
             })
@@ -37,12 +32,7 @@
                 controller: 'ItemsInCategoriesCTRL as ctrl',
                 resolve: {
                     items: ['MenuDataService', '$stateParams', function (MenuDataService, $stateParams) {
-                        var promise = MenuDataService.getItemsForCategory($stateParams.categoryId);
-
-                        return promise.then( function (responce) {
-                            console.log(responce.data)
-                            return responce.data;
-                        });
+                        return MenuDataService.getItemsForCategory($stateParams.categoryId);
                     }]
                 }
             })
