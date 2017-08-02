@@ -7,7 +7,7 @@ angular.module('public')
   bindings: {
     menuItem: '<'
   },
-  controller: MenuItemController
+  controller: 'MenuItemController'
 });
 
 

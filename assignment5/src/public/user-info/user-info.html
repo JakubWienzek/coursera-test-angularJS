@@ -1,0 +1,11 @@
+<h2>Your info</h2>
+<div ng-hide="userInfoCtrl.user.first_name">
+    <p>Not Signed Up Yet. Sign up Now!</p>
+</div>
+<div ng-show="userInfoCtrl.user.first_name">
+    <p>First name: {{userInfoCtrl.user.first_name}}</p>
+    <p>Last name: {{userInfoCtrl.user.last_name}}</p>
+    <p>Email: {{userInfoCtrl.user.email}}</p>
+    <p>Phone number: {{userInfoCtrl.user.phoneNr}}</p>
+    <p>Favourite dish: {{userInfoCtrl.user.favourite}}</p>
+</div>

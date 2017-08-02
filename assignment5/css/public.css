@@ -183,3 +183,11 @@ h3.menu-item-title {
     width: 100%;
   }
 }
+
+input {
+  color: #080808;
+}
+
+form {
+  margin-left: 20px;
+}

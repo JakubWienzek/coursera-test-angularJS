@@ -1,0 +1,59 @@
+<h2>Form</h2>
+<form name="signUp" novalidate>
+
+    <input type="text"
+           name="first_name"
+           ng-model="formCtrl.user.first_name"
+           placeholder="Enter you first name"
+           required/>
+    <span ng-if="signUp.first_name.$error.required && signUp.first_name.$touched">
+        Field is required
+    </span>
+    <br/>
+
+    <input type="text"
+           name="last_name"
+           ng-model="formCtrl.user.last_name"
+           placeholder="Enter you last name"
+           required/>
+    <span ng-if="signUp.last_name.$error.required && signUp.last_name.$touched">
+        Field is required
+    </span>
+    <br/>
+
+    <input type="email"
+           name="email"
+           ng-model="formCtrl.user.email"
+           placeholder="Enter you email"
+           required/>
+    <span ng-if="signUp.email.$error.required && signUp.email.$touched">
+        Field is required
+    </span>
+    <br/>
+
+    <input type="text"
+           name="phoneNr"
+           ng-model="formCtrl.user.phoneNr"
+           placeholder="###-###-####"
+           pattern="(\d{3})-(\d{3})-(\d{4})"
+           required/>
+    <span ng-if="signUp.phoneNr.$invalid &&
+                signUp.phoneNr.$touched">
+        Phone number is invalid
+    </span>
+    <br/>
+
+    <input type="text"
+           name="favourite"
+           ng-model="formCtrl.user.favourite"
+           placeholder="Enter you favourite dish category"
+           required/>
+    <span ng-if="signUp.favourite.$error.required && signUp.favourite.$touched">
+        Field is required
+    </span>
+    <br/>
+    <button ng-click="formCtrl.submit()" ng-disabled="signUp.$invalid">
+        Submit
+    </button>
+    <span ng-if="formCtrl.saved">Form saved</span>
+</form>
