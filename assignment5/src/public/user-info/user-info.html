@@ -7,5 +7,9 @@
     <p>Last name: {{userInfoCtrl.user.last_name}}</p>
     <p>Email: {{userInfoCtrl.user.email}}</p>
     <p>Phone number: {{userInfoCtrl.user.phoneNr}}</p>
-    <p>Favourite dish: {{userInfoCtrl.user.favourite}}</p>
+    <p>Favourite dish:
+        <img src="images/menu/{{userInfoCtrl.user.favourite.category_short_name}}/{{userInfoCtrl.user.favourite.category_short_name}}.jpg"/> <br/>
+        <span>{{userInfoCtrl.user.favourite.name}}</span> <br/>
+        <span>{{userInfoCtrl.user.favourite.description}}</span>
+    </p>
 </div>

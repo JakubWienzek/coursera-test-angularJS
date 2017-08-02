@@ -26,8 +26,6 @@
         }
 
         service.setUserInfo = function (user) {
-            getItemByShortName(user.favourite);
-
             userInfo.first_name = user.first_name;
             userInfo.last_name = user.last_name;
             userInfo.email = user.email;
@@ -35,21 +33,13 @@
             userInfo.favourite = user.favourite;
         }
 
-        function getItemByShortName(name) {
-            var config = {};
-            if (name) {
-                config.params = {'short_name': name};
-            }
+        service.getItemByShortName = function(name) {
 
             return $http.get(ApiPath + '/menu_items/'+ name+'.json')
                 .then(function (response) {
                     console.log(response.data)
                     favouriteValid = true;
-                    return response.data;
-                })
-                .catch(function (error) {
-                    console.log(error);
-                    favouriteValid = false;
+                    return response;
                 });
         };
     }

@@ -191,3 +191,9 @@ input {
 form {
   margin-left: 20px;
 }
+
+.label {
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+}
