@@ -1,6 +1,6 @@
-<h2>Your info</h2>
+<h2>Your subscription information</h2>
 <div ng-hide="userInfoCtrl.user.first_name">
-    <p>Not Signed Up Yet. Sign up Now!</p>
+    <p>Not Signed Up Yet. <a ui-sref="public.signUp">Sign up Now!</a></p>
 </div>
 <div ng-show="userInfoCtrl.user.first_name">
     <p>First name: {{userInfoCtrl.user.first_name}}</p>

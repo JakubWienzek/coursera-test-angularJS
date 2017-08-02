@@ -11,8 +11,8 @@ angular.module('public')
 angular.module('public')
     .controller('FormController', FormController);
 
-    FormController.$inject = ['$scope', 'ApiPath', 'userInfoService'];
-    function FormController($scope, ApiPath, UserInfoService) {
+    FormController.$inject = ['$scope', 'userInfoService'];
+    function FormController($scope, UserInfoService) {
         var ctrl = this;
 
         ctrl.saved = false;
@@ -33,6 +33,7 @@ angular.module('public')
                     UserInfoService.setUserInfo(ctrl.user);
                     ctrl.error = false;
                     ctrl.saved=true;
+                    //reseting form
                     $scope.signUp.$setPristine();
                     $scope.signUp.$setUntouched();
                     resetUser();
