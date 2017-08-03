@@ -56,10 +56,10 @@
            name="favourite"
            ng-model="formCtrl.user.favourite"
            placeholder="Enter you favourite dish category"
-           />
-    <!--<span ng-if="signUp.favourite.$error.required && signUp.favourite.$touched">
+           required/>
+    <span ng-if="signUp.favourite.$error.required && signUp.favourite.$touched">
         Field is required
-    </span>-->
+    </span>
     <br/>
     <button ng-click="formCtrl.submit()" ng-disabled="signUp.$invalid">
         Submit
