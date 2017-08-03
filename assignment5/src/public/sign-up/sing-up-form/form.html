@@ -33,6 +33,9 @@
     <span ng-if="signUp.email.$error.required && signUp.email.$touched">
         Field is required
     </span>
+    <span ng-if="signUp.email.$invalid && signUp.email.$touched">
+        Wrong email pattern. C'mon, you can do it! Use @ somewhere in ther.
+    </span>
     <br/>
 
     <span class="label">Phone number:</span>
